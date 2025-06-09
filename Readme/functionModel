@@ -1,24 +1,31 @@
 # Brawijaya-University-Canteen
 
+DEADLINE 13 JUNI 2025 JUMAT
+
 **MODEL**
 _Model.class.php_
 function construct() //koneksi ke database 'canteen'
+(Ghefira)
 
 _CanteenModel.class.php_
 function getAllCanteen() //melihatkan semua kantin di view/list.php
 function getCanteenById() //melihatkan detail dari kantin yang dipilih dari view/list.php
+(Ghefira)
 
 _CommentModel.class.php_
 function getCommentsByUserId() //melihatkan komentar user di halaman view/comment.php
 function getCommentsByCanteenId() //melihatkan komentar user di halaman view/detail.php
 function addComment() //
 function deleteComment() //
+(Azkamitsa)
 
 _likeModel.class.php_
 function getlikesByUserId() //melihatkan komentar user di halaman view/like.php
 function addlike() //
 function deletelike() //
+(Haniyyah)
 
 _UserModel.class.php_
 function register()
 function login()
+(Haniyyah)
