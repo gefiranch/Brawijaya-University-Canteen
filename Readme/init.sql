@@ -42,7 +42,8 @@ CREATE TABLE comment(
 --Data dummy
 
 --Data user
-... (Azkamitsa)
+...
   
 --Data canteen
-... (Haniyyah)
+... (Haniyyah 5)
+... (Azkamitsa 5)
