@@ -76,4 +76,4 @@ Sebuah sistem berbasis website (diutamakan untuk tampilan mobile) yang menampilk
 
 ---
 
-> Proyek ini telah mengalami banyak perubahan sejak proposal awal. Hal ini disesuaikan dengan proses belajar anggota tim serta kebutuhan teknis agar proyek dapat berjalan dan berkembang dengan baik.
+> Proyek ini telah mengalami banyak perubahan sejak proposal awal. Hal ini disesuaikan dengan proses belajar anggota kelompok serta kebutuhan teknis agar proyek dapat dikerjakan dengan baik oleh kelompok.
