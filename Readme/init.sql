@@ -1,18 +1,15 @@
---Membuat database canteenUB
 CREATE DATABASE canteenUB;
-
---Menggunakan canteenUB untuk melakukan syntaxt berikutnya
 USE canteenUB;
 
---Tabel menyimpan user berisi email, name dan password
-CREATE TABLE user (
+-- Tabel users
+CREATE TABLE users (
   id_user INT AUTO_INCREMENT PRIMARY KEY,
   email VARCHAR(55) NOT NULL,
   name VARCHAR(55) NOT NULL,
   password VARCHAR(255) NOT NULL
 );
 
---Tabel menyimpan informasi canteen berisi name, price, description
+-- Tabel canteen
 CREATE TABLE canteen (
   id_canteen INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(55) NOT NULL,
@@ -20,31 +17,34 @@ CREATE TABLE canteen (
   description TEXT NOT NULL
 );
 
---Tabel menyimpan informasi apa saja yang di like oleh user
-CREATE TABLE like (
+-- Tabel favorites
+CREATE TABLE favorites (
   id_like INT AUTO_INCREMENT PRIMARY KEY,
   id_user INT NOT NULL,
   id_canteen INT NOT NULL,
-  FOREIGN KEY (id_user) REFERENCES user(id_user),
-  FOREIGN KEY (id_canteen) REFERENCES canteen(id_canteen)
+  FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE,
+  FOREIGN KEY (id_canteen) REFERENCES canteen(id_canteen) ON DELETE CASCADE
 );
 
---Tabel comment menyimpan komentar apa saja yang dimasukkan user kedalam sebuah kantin
-CREATE TABLE comment (
+-- Tabel comments
+CREATE TABLE comments (
   id_comment INT AUTO_INCREMENT PRIMARY KEY,
   comment TEXT NOT NULL,
   id_user INT NOT NULL,
   id_canteen INT NOT NULL,
-  FOREIGN KEY (id_user) REFERENCES user(id_user),
-  FOREIGN KEY (id_canteen) REFERENCES canteen(id_canteen)
+  FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE,
+  FOREIGN KEY (id_canteen) REFERENCES canteen(id_canteen) ON DELETE CASCADE
 );
 
---Data dummy
+-- Data dummy users (tanpa hash)
+INSERT INTO users (email, name, password) VALUES
+('gefi01@student.ub.ac.id', 'Gefi', 'password123'),
+('alya02@student.ub.ac.id', 'Alya', 'securepass456'),
+('budi03@student.ub.ac.id', 'Budi', 'mypassword789'),
+('citra04@student.ub.ac.id', 'Citra', 'passw0rd'),
+('dimas05@student.ub.ac.id', 'Dimas', 'dimaspass321');
 
---Data user
-...
-  
---Data canteen
+-- Data dummy canteen
 INSERT INTO canteen (name, price, description) VALUES
 ('Kantin FILKOM', '7.000 - 15.000', 'Terletak di Fakultas Ilmu Komputer, UB. Kantin ini menyediakan makanan cepat saji seperti ayam geprek, nasi goreng, dan berbagai minuman kopi kekinian. Harga ramah kantong untuk mahasiswa IT.'),
 ('Kantin FEB', '8.000 - 20.000', 'Berlokasi di Fakultas Ekonomi dan Bisnis, UB. Menawarkan menu bervariasi seperti soto, bakso, ayam penyet, serta kopi susu dan es teh manis. Tempat duduk nyaman untuk diskusi tugas.'),
