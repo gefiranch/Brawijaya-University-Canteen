@@ -26,6 +26,6 @@ function deletelike() //
 (Haniyyah)
 
 _UserModel.class.php_
-function register()
-function login()
+function register() //
+function login() //
 (Haniyyah)
