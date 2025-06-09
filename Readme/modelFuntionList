@@ -2,30 +2,29 @@
 
 DEADLINE 13 JUNI 2025 JUMAT
 
-**MODEL**
 _Model.class.php_
 function construct() //koneksi ke database 'canteen'
 (Ghefira)
 
-_CanteenModel.class.php_
+_CanteensModel.class.php_
 function getAllCanteen() //melihatkan semua kantin di view/list.php
 function getCanteenById() //melihatkan detail dari kantin yang dipilih dari view/list.php
 (Ghefira)
 
-_CommentModel.class.php_
+_CommentsModel.class.php_
 function getCommentsByUserId() //melihatkan komentar user di halaman view/comment.php
 function getCommentsByCanteenId() //melihatkan komentar user di halaman view/detail.php
-function addComment() //
-function deleteComment() //
+function addComment() //menambahkan komentar
+function deleteComment() //menghapus komentar
 (Azkamitsa)
 
-_likeModel.class.php_
-function getlikesByUserId() //melihatkan komentar user di halaman view/like.php
-function addlike() //
-function deletelike() //
+_favoritesModel.class.php_
+function getfavoritesByUserId() //melihatkan komentar user di halaman view/like.php
+function addfavorite() //menambahkan favorites
+function deletefavorite() //menghapus favorites
 (Haniyyah)
 
-_UserModel.class.php_
-function register() //
-function login() //
+_UsersModel.class.php_
+function register() //melakukan daftar akun
+function login() //melakukan login dengan akun yang sudah terdaftar
 (Haniyyah)
