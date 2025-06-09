@@ -1,6 +1,6 @@
 # Brawijaya University Canteens
 
-Sebuah sistem berbasis website untuk mengelola dan menampilkan informasi kantin di Universitas Brawijaya. Sistem ini dibuat menggunakan pendekatan arsitektur **MVC (Model-View-Controller)**.
+Sebuah sistem berbasis website (diutamakan untuk tampilan mobile) yang menampilkan informasi kantin di Universitas Brawijaya. Sistem ini dibangun menggunakan pendekatan arsitektur **MVC (Model-View-Controller)**.
 
 ---
 
@@ -40,31 +40,40 @@ Sebuah sistem berbasis website untuk mengelola dan menampilkan informasi kantin 
 │
 └── index.php # Entry point aplikasi
 
----
-
-## 🧠 Fitur Utama
-- Daftar kantin UB
-- Detail setiap kantin
-- Komentar dan ulasan
-- Login & Register
-- Sistem favorit kantin
 
 ---
 
-## 🚀 Cara Menjalankan
-1. Import `database.sql` ke phpMyAdmin.
-2. Pastikan semua file berada di dalam direktori `htdocs` (jika pakai XAMPP).
-3. Akses melalui browser via `http://localhost/Brawijaya-University-Canteens/index.php`.
-4. Sesuaikan koneksi database di file `Model.class.php`.
+## Studi Kasus
+
+- **Mencari dan melihat informasi detail mengenai kantin**  
+  *Azka Mitsalia Zamzami*
+
+- **Menambahkan komentar pada kantin**  
+  *Ghefira Addien M.M - 245150400111033*
+
+- **Menambahkan favorit kantin**  
+  *Zahra Nurul Haniyyah*
 
 ---
 
-## 📌 Catatan
-- Semua logic berada di dalam folder `controller/`.
-- Fungsi-fungsi terkait database berada di `model/`.
-- File HTML yang ditampilkan user berada di `view/`.
-- Dokumentasi fungsi lengkap bisa dilihat di `controllerFunctionList` dan `modelFunctionList`.
+## Cara Menjalankan
+
+1. Import file `database.sql` ke phpMyAdmin atau aplikasi manajemen database lainnya.
+2. Letakkan seluruh file dan folder ke dalam direktori `htdocs` (jika menggunakan XAMPP).
+3. Akses melalui browser menggunakan URL:  
+   `http://localhost/Brawijaya-University-Canteens/`
 
 ---
 
-> Project ini dibuat sebagai bagian dari pengembangan sistem informasi untuk membantu mahasiswa UB memilih kantin dengan informasi yang lengkap dan akurat.
+## Catatan
+
+- Semua logic utama berada di dalam folder `/controller/`.
+- Semua interaksi dengan database berada di `/model/`.
+- File tampilan yang dilihat user berada di `/view/`.
+- Dokumentasi fungsi dapat dilihat di:
+  - `controllerFunctionList`
+  - `modelFunctionList`
+
+---
+
+> Proyek ini telah mengalami banyak perubahan sejak proposal awal. Hal ini disesuaikan dengan proses belajar anggota tim serta kebutuhan teknis agar proyek dapat berjalan dan berkembang dengan baik.
