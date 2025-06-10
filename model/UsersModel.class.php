@@ -1,6 +1,7 @@
 <?php
 
 class UsersModel extends Model {
+    // Membuat fungsi register yang mana email tidak bisa sama (unik)
     function register($email, $name, $password) {
         $checkSql = "SELECT id FROM users WHERE email = ?";
         $checkStmt = $this->db->prepare($checkSql);
@@ -9,7 +10,7 @@ class UsersModel extends Model {
         $checkResult = $checkStmt->get_result();
 
         if ($checkResult && $checkResult->num_rows > 0) {
-            return ["success" => false, "message" => "Username or email already exists."];
+            return ["success" => false, "message" => "email already exists."];
         }
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -23,7 +24,8 @@ class UsersModel extends Model {
         
         return ["success" => false, "message" => "Registration failed."];
     }
-    
+
+    // Membuat fungsi login dengan email dan password yang di hash
     function login($email, $password) {
         $sql = "SELECT * FROM users WHERE email = ?";
         $stmt = $this->db->prepare($sql);
@@ -37,7 +39,7 @@ class UsersModel extends Model {
                 return ["success" => true, "user" => $user];
             }
         }
-        return ["success" => false, "message" => "Invalid username or password."];
+        return ["success" => false, "message" => "Invalid name or password."];
     }
 }
 ?>
