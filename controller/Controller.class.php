@@ -1,23 +1,18 @@
 <?php
+
 class Controller
 {
+    public $controller;
 
-    function model($model)
+    function __construct($controllerName)
     {
-        require_once("./model/Model.class.php");
-        require_once("./model/$model.class.php");
-        return new $model();
-    }
+        // Memanggil model Model.class.php
+        require_once 'model/Model.class.php';
 
-    function view($view, $data = [])
-    {
-        foreach ($data as $key => $value) {
-            $$key = $value;
-        }
-        if (file_exists("./view/$view")) {
-            include("./view/$view");
-        } else {
-            echo "View '$view' tidak ditemukan.";
-        }
+        // Memanggil controller yang sesuai
+        require_once 'controller/' . $controllerName . '.class.php';
+
+        // Instansiasi controller dan simpan dalam properti $controller
+        $this->controller = new $controllerName();
     }
 }
