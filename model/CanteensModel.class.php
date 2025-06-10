@@ -1,7 +1,5 @@
 <?php
 
-require_once 'model/Model.class.php';
-
 class CanteensModel extends Model
 {
     // Mengambil semua data kantin
