@@ -10,7 +10,7 @@ CREATE TABLE users (
 );
 
 -- Tabel canteen
-CREATE TABLE canteen (
+CREATE TABLE canteens (
   id_canteen INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(55) NOT NULL,
   price VARCHAR(55) NOT NULL,
@@ -45,7 +45,7 @@ INSERT INTO users (email, name, password) VALUES
 ('dimas05@student.ub.ac.id', 'Dimas', 'dimaspass321');
 
 -- Data dummy canteen
-INSERT INTO canteen (name, price, description) VALUES
+INSERT INTO canteens (name, price, description) VALUES
 ('Kantin FILKOM', '7.000 - 15.000', 'Terletak di Fakultas Ilmu Komputer, UB. Kantin ini menyediakan makanan cepat saji seperti ayam geprek, nasi goreng, dan berbagai minuman kopi kekinian. Harga ramah kantong untuk mahasiswa IT.'),
 ('Kantin FEB', '8.000 - 20.000', 'Berlokasi di Fakultas Ekonomi dan Bisnis, UB. Menawarkan menu bervariasi seperti soto, bakso, ayam penyet, serta kopi susu dan es teh manis. Tempat duduk nyaman untuk diskusi tugas.'),
 ('Kantin FIB', '5.000 - 12.000', 'Berada di Fakultas Ilmu Budaya, UB. Menyajikan makanan tradisional seperti nasi jagung, pecel, serta jajanan pasar seperti onde-onde dan klepon. Suasana etnik yang cocok untuk santai.'),
