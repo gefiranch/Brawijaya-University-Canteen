@@ -3,15 +3,20 @@
 class Model
 {
     protected $db;
-    function __construct()
-    {
-        $host = "localhost:3306";
-        $user = "root";
-        $password = "";
-        $database = "canteenUB";
 
-        $this->db = new mysqli($host, $user, $password, $database);
-        if (!$this->db) {
+    public function __construct()
+    {
+        // Konfigurasi koneksi ke database
+        $host = 'localhost';
+        $user = 'root';
+        $pass = '';
+        $dbname = 'canteenUB';
+
+        // Membuat koneksi ke database
+        $this->db = new mysqli($host, $user, $pass, $dbname);
+
+        // Memeriksa koneksi
+        if ($this->db->connect_error) {
             echo "Database error";
             exit;
         }
