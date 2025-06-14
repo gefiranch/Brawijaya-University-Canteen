@@ -50,5 +50,5 @@ class CommentsModel extends Model
         $result = $stmt->execute();
         $stmt->close();
         return $result;
-    }
+    }
 }
