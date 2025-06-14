@@ -23,7 +23,7 @@ CREATE TABLE favorites (
   id_user INT NOT NULL,
   id_canteen INT NOT NULL,
   FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE,
-  FOREIGN KEY (id_canteen) REFERENCES canteen(id_canteen) ON DELETE CASCADE
+  FOREIGN KEY (id_canteen) REFERENCES canteens(id_canteen) ON DELETE CASCADE
 );
 
 -- Tabel comments
@@ -33,7 +33,7 @@ CREATE TABLE comments (
   id_user INT NOT NULL,
   id_canteen INT NOT NULL,
   FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE,
-  FOREIGN KEY (id_canteen) REFERENCES canteen(id_canteen) ON DELETE CASCADE
+  FOREIGN KEY (id_canteen) REFERENCES canteens(id_canteen) ON DELETE CASCADE
 );
 
 -- Data dummy users (tanpa hash)
