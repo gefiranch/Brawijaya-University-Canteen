@@ -4,15 +4,19 @@ class Controller
 {
     public $controller;
 
-    function __construct($controllerName)
+    function __construct($model)
     {
-        // Memanggil model Model.class.php
-        require_once 'model/Model.class.php';
+        require_once 'model/model.class.php';
+        require_once 'model/' . $model . '.class.php';
+        return new $model(); // Inisialisasi model
+    }
 
-        // Memanggil controller yang sesuai
-        require_once 'controller/' . $controllerName . '.class.php';
-
-        // Instansiasi controller dan simpan dalam properti $controller
-        $this->controller = new $controllerName();
+    // Fungsi untuk memanggil view
+    public function view($viewName, $data = [])
+    {
+        foreach ($data as $key => $value) {
+            $$key = $value; // Membuat variabel lokal untuk setiap data
+        }
+        include 'view/' . $viewName . '.php'; // Memasukkan file view
     }
 }
