@@ -4,7 +4,7 @@ class Controller
 {
     public $controller;
 
-    function __construct($model)
+    function model($model)
     {
         require_once 'model/model.class.php';
         require_once 'model/' . $model . '.class.php';
