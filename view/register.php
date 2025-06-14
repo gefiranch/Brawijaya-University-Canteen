@@ -36,12 +36,15 @@
     </header>
 
     <main>
-        <div class="register-container">
+        <div class="register-container container mt-5" style="max-width: 400px;">
             <h2 class="text-center mb-4">Register</h2>
-            <form action="#" method="#">
+            <?php if (isset($message) && !$message['success']) : ?>
+                <div class="alert alert-danger"><?= htmlspecialchars($message['message']) ?></div>
+            <?php endif; ?>
+            <form action="index.php?c=Users&m=register" method="POST">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" required />
+                    <input type="text" id="username" name="name" class="form-control" placeholder="Username" required />
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -56,11 +59,11 @@
                 </div>
             </form>
             <p class="mt-3 text-center">
-                Have an account? <a href="#">Login here</a>
+                Have an account? <a href="index.php?c=Users&m=login">Login here</a>
             </p>
         </div>
     </main>
 
-    </body>
+</body>
 
 </html>
