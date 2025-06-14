@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Comment List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        padding: 20px;
+      }
+
+      .btn-back {
+        text-decoration: none;
+        color: #333;
+        border: 1px solid #ccc;
+        padding: 6px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+        background-color: #fff;
+        transition: background-color 0.3s;
+      }
+
+      .btn-back:hover {
+        background-color: #e0e0e0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 0 20px;
+      }
+
+      h2 {
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+      }
+
+      p.text-center {
+        text-align: center;
+        color: #666;
+      }
+
+      .card {
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .canteen-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #222;
+      }
+
+      .comment-text {
+        margin-bottom: 15px;
+        color: #444;
+      }
+
+      .btn-delete {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .btn-delete:hover {
+        background-color: #c82333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#" class="btn-back">← Back to Dashboard</a>
+    </header>
+
+    <main class="container">
+      <h2>Comment List</h2>
+      <p class="text-center">Here you can see your comment.</p>
+
+      <!-- Example Comment Card -->
+      <div class="card">
+        <div class="canteen-name">Main Canteen</div>
+        <div class="comment-text">Great food!</div>
+        <form onsubmit="return confirm('Delete this comment?')">
+          <input type="hidden" name="delete_id" value="1" />
+          <button type="submit" class="btn-delete">Delete</button>
+        </form>
+      </div>
+
+      <!-- Tambahkan lebih banyak card jika diperlukan -->
+    </main>
+  </body>
+</html>
