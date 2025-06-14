@@ -36,12 +36,15 @@
     </header>
 
     <main>
-        <div class="login-container">
+        <div class="login-container container mt-5" style="max-width: 400px;">
             <h2 class="text-center mb-4">Login</h2>
-            <form action="#" method="#">
+            <?php if (isset($message) && !$message['success']) : ?>
+                <div class="alert alert-danger"><?= htmlspecialchars($message['message']) ?></div>
+            <?php endif; ?>
+            <form action="index.php?c=Users&m=login" method="POST">
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="email" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
@@ -51,7 +54,9 @@
                     <button type="submit" class="btn btn-secondary">Login</button>
                 </div>
             </form>
-            <p class="mt-3 text-center">Don't have an account? <a href="#">Register here</a></p>
+            <p class="mt-3 text-center">Don't have an account?
+                <a href="index.php?c=Users&m=register">Register here</a>
+            </p>
         </div>
     </main>
 
