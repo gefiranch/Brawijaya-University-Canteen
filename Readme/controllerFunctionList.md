@@ -6,8 +6,11 @@ Dokumentasi fungsi-fungsi yang terdapat di dalam folder /controller/.
 ## Controller.class.php
 **Ghefira**
 
-- `__construct()`  
-  Konstruktor dasar untuk menginisialisasi controller yang diperlukan dan me-load model terkait.
+- `model()`  
+  untuk menginisialisasi model yang diperlukan dan me-load model terkait.
+
+- `view()`  
+  untuk menginisialisasi view yang diperlukan dan me-load view terkait. 
 
 ---
 
