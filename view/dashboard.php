@@ -59,7 +59,7 @@
                 <a href="#">Canteen List</a>
                 <a href="#">My Comment</a>
                 <a href="#">My Favorites</a>
-                <a href="#">Logout</a>
+                <a href="index.php?c=Users&m=logout">Logout</a>
             </div>
         </div>
     </main>
