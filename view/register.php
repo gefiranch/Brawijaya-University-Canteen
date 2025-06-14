@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         body {
             background-color: #f0f0f0;
         }
 
-        .login-container {
+        .register-container {
             max-width: 400px;
             margin: 50px auto;
             padding: 30px;
@@ -36,30 +36,31 @@
     </header>
 
     <main>
-        <div class="login-container container mt-5" style="max-width: 400px;">
-            <h2 class="text-center mb-4">Login</h2>
-            <?php if (isset($message) && !$message['success']) : ?>
-                <div class="alert alert-danger"><?= htmlspecialchars($message['message']) ?></div>
-            <?php endif; ?>
-            <form action="index.php?c=Users&m=login" method="POST">
+        <div class="register-container">
+            <h2 class="text-center mb-4">Register</h2>
+            <form action="index.php?c=Users&m=register" method="POST">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Username" required />
+                </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="email" required>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" required />
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required />
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-secondary">Login</button>
+                    <button type="submit" class="btn btn-secondary">Register</button>
                 </div>
             </form>
-            <p class="mt-3 text-center">Don't have an account?
-                <a href="index.php?c=Users&m=register">Register here</a>
+            <p class="mt-3 text-center">
+                Have an account? <a href="index.php?c=Users&m=login">Login here</a>
             </p>
         </div>
     </main>
 
-</body>
+    </body>
 
 </html>
