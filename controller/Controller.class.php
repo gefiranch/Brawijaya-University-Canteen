@@ -2,8 +2,6 @@
 
 class Controller
 {
-    public $controller;
-
     function model($model)
     {
         require_once 'model/model.class.php';
