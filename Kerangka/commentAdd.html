@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Comment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
 
+      header {
+        padding: 1rem;
+      }
+
+      .btn-back {
+        text-decoration: none;
+        color: #333;
+        border: 1px solid #ccc;
+        padding: 6px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+        background-color: #fff;
+        transition: background-color 0.3s;
+      }
+
+      .btn-back:hover {
+        background-color: #e0e0e0;
+      }
+
+      .comment-container {
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        border: 1px solid #cccccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+
+      h2,
+      p {
+        text-align: center;
+        color: #333;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #444;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+        font-size: 14px;
+      }
+
+      .submit-btn {
+        margin-top: 20px;
+        width: 100%;
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .submit-btn:hover {
+        background-color: #5a6268;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="#" class="btn-back" onclick="window.history.back();">← Back</a>
+    </header>
+
+    <main>
+      <div class="comment-container">
+        <h2>Add Comment</h2>
+        <p>Please fill out the form below to add a comment.</p>
+
+        <form>
+          <label for="comment">Comment</label>
+          <textarea
+            id="comment"
+            name="comment"
+            rows="4"
+            placeholder="Write your comment here..."
+            required
+          ></textarea>
+
+          <button type="submit" class="submit-btn">Add Comment</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
