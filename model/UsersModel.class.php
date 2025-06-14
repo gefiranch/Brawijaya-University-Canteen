@@ -3,7 +3,7 @@
 class UsersModel extends Model {
     // Membuat fungsi register yang mana email tidak bisa sama (unik)
     function register($email, $name, $password) {
-        $checkSql = "SELECT id FROM users WHERE email = ?";
+        $checkSql = "SELECT id_user FROM users WHERE email = ?";
         $checkStmt = $this->db->prepare($checkSql);
         $checkStmt->bind_param("s", $email);
         $checkStmt->execute();
