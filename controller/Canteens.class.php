@@ -1,29 +1,51 @@
 <?php
 
-require_once '../controller/Controller.class.php';
+require_once 'Controller.class.php';
+require_once '../model/CanteensModel.class.php';
 require_once '../model/CommentsModel.class.php';
 
 class Canteens extends Controller
-
 {
+    private $canteensModel;
+    private $commentsModel;
+
+    public function __construct()
+    {
+        $this->canteensModel = new CanteensModel();
+        $this->commentsModel = new CommentsModel();
+    }
+
     // Menampilkan daftar semua kantin
     public function listCanteens()
     {
-        $canteensModel = new CanteensModel();
-        $canteens = $canteensModel->getAllCanteen();
+        $canteens = $this->canteensModel->getAllCanteen();
 
-        include '/view/canteenList.php';
+        $this->view('canteenList', [
+            'canteens' => $canteens
+        ]);
     }
 
     // Menampilkan detail kantin berdasarkan ID
     public function viewDetail($id)
     {
-        $canteensModel = new CanteensModel();
-        $canteen = $canteensModel->getCanteenById($id);
+        // Validasi ID
+        if (!is_numeric($id)) {
+            header("Location: index.php?c=Canteens&m=listCanteens&status=invalid_id");
+            exit;
+        }
 
-        $commentsModel = new CommentsModel();
-        $comments = $commentsModel->getCommentsByCanteenId($id);
+        $canteen = $this->canteensModel->getCanteenById((int)$id);
 
-        include '/view/canteenDetail.php';
+        if (!$canteen) {
+            header("Location: index.php?c=Canteens&m=listCanteens&status=not_found");
+            exit;
+        }
+
+        $comments = $this->commentsModel->getCommentsByCanteenId((int)$id);
+
+        $this->view('canteenDetail', [
+            'canteen' => $canteen,
+            'comments' => $comments
+        ]);
     }
 }
