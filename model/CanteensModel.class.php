@@ -27,3 +27,4 @@ class CanteensModel extends Model
         return $result->fetch_assoc();
     }
 }
+
