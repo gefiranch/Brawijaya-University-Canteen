@@ -1,11 +1,13 @@
 <?php
 
+require_once 'Model.class.php';
+
 class CanteensModel extends Model
 {
     // Mengambil semua data kantin
     public function getAllCanteen()
     {
-        $query = "SELECT * FROM canteen";
+        $query = "SELECT * FROM canteens";
         $result = $this->db->query($query);
 
         $canteens = [];
@@ -18,7 +20,7 @@ class CanteensModel extends Model
     // Mengambil data kantin berdasarkan ID
     public function getCanteenById($id)
     {
-        $query = "SELECT * FROM canteen WHERE id_canteen = ?";
+        $query = "SELECT * FROM canteens WHERE id_canteen = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -27,4 +29,3 @@ class CanteensModel extends Model
         return $result->fetch_assoc();
     }
 }
-
