@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <title>Canteen List</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     body {
@@ -45,29 +44,22 @@
 
 <body>
   <header>
-    <h1><a href="#" class="text-decoration-none text-dark">Brawijaya University Canteen</a></h1>
+    <h1>Daftar Kantin</h1>
   </header>
+  <div class="canteen-container">
 
-  <main class="canteen-container">
-    <h2 class="text-center mb-4">Canteen List</h2>
-    <p class="text-center">Here you can find a list of canteens available at Brawijaya University.</p>
+    <?php if (empty($canteens)): ?>
+      <p class="text-center">Belum ada data kantin.</p>
+    <?php else: ?>
+      <?php foreach ($canteens as $canteen): ?>
+        <div class="card">
+          <h4><?= htmlspecialchars($canteen['name']) ?></h4>
+          <a href="index.php?c=Canteens&m=viewDetail&id=<?= $canteen['id_canteen'] ?>">Lihat Detail</a>
+        </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
 
-    <div class="card">
-      <h3>Main Campus Canteen</h3>
-      <a href="#">See details</a>
-    </div>
-
-    <div class="card">
-      <h3>Science Block Canteen</h3>
-      <a href="#">See details</a>
-    </div>
-
-    <div class="card">
-      <h3>Engineering Canteen</h3>
-      <a href="#">See details</a>
-    </div>
-  </main>
-
+  </div>
 </body>
 
 </html>
