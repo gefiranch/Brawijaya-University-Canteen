@@ -49,19 +49,6 @@ class Comments extends Controller
         header('Location: index.php?c=Comments&m=showUserComments'); // atau sesuaikan dengan tampilan comment list kamu
         exit;
     }
-    // public function deleteComment()
-    // {
-    //     if (isset($_GET['id'])) {
-    //         $commentId = $_GET['id'];
-
-    //         $model = new CommentsModel();
-    //         $model->deleteComment($commentId);
-            
-    //     }
-    //     header('Location: index.php?page=commentList');
-    //     exit;
-    // }
-
 
     // Menampilkan semua komentar dari user
     public function showUserComments()
