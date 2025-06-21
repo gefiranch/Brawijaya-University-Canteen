@@ -1,8 +1,8 @@
 <?php
 
 require_once 'Controller.class.php';
-require_once '../model/CanteensModel.class.php';
-require_once '../model/CommentsModel.class.php';
+require_once __DIR__ . '/../model/CanteensModel.class.php';
+require_once __DIR__ . '/../model/CommentsModel.class.php';
 
 class Canteens extends Controller
 {
