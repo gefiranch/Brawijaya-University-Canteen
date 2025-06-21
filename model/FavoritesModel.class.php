@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Model.class.php';
+
 class FavoritesModel extends Model
 {
 
@@ -21,8 +23,7 @@ class FavoritesModel extends Model
     // Menambahkan data kantin ke favorites
     function addFavorite($userId, $canteenId)
     {
-        $sql = "INSERT INTO favorites (id_user, id_canteen)
-                VALUES ('$userId', '$canteenId')";
+        $sql = "INSERT INTO favorites (id_user, id_canteen) VALUES (?, ?)";
         $stmt = $this->db->prepare($sql);
         $stmt->bind_param("ii", $userId, $canteenId);
         $stmt->execute();
