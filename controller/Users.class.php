@@ -56,7 +56,7 @@ class Users extends Controller
             $result = $this->usersModel->login($email, $password);
             if ($result['success']) {
                 $user = $result['user'];
-                $_SESSION['user_id'] = $user['id_user'];
+                $_SESSION['id_user'] = $user['id_user'];
                 $_SESSION['user_name'] = $user['name'];
 
                 header('Location: index.php?c=Users&m=dashboard');
@@ -82,14 +82,14 @@ class Users extends Controller
     function dashboard()
     {
         // Cek apakah pengguna sudah login
-        if (empty($_SESSION['user_id'])) {
+        if (empty($_SESSION['id_user'])) {
             header('Location: index.php?c=Users&m=login');
             exit();
         }
 
         // Tampilkan halaman dashboard dengan data pengguna
         $this->view('dashboard', [
-            'user_id' => $_SESSION['user_id'],
+            'id_user' => $_SESSION['id_user'],
             'user_name' => $_SESSION['user_name'] ?? 'Guest'
         ]);
     }
