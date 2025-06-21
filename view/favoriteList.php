@@ -40,24 +40,32 @@
 
 <body>
   <header class="d-flex justify-content-start align-items-center">
-    <a href="dashboard.php" class="btn btn-outline-secondary btn-sm btn-back">← Back to Dashboard</a>
+    <a href="index.php?c=Users&m=dashboard" class="btn btn-outline-secondary btn-sm btn-back">← Back to Dashboard</a>
   </header>
 
   <main class="container">
-    <h2>Your Liked Items</h2>
-    <p class="text-center">Here you can see the items you have liked.</p>
+    <h2><?= htmlspecialchars($user_name) ?>'s Liked Canteens</h2>
+    <p class="text-center">Here you can see the canteens you have liked.</p>
 
-    <!-- Example Liked Item Card -->
-    <div class="card">
-      <h3>Item Title</h3>
-      <p>Description of the item.</p>
-      <form action="../controller/unlike.php" method="post">
-        <input type="hidden" name="item_id" value="1">
-        <button type="submit" class="btn btn-danger btn-sm">Remove</button>
-      </form>
-    </div>
-
-    <!-- Add more liked items as needed -->
+    <?php if (!empty($favorites)) : ?>
+      <?php foreach ($favorites as $canteen) : ?>
+        <div class="card">
+          <h4 class="card-title">
+            <a href="index.php?c=Canteens&m=viewDetail&id=<?= $canteen['id_canteen'] ?>">
+              <?= htmlspecialchars($canteen['name']) ?>
+            </a>
+          </h4>
+          <p><?= nl2br(htmlspecialchars($canteen['description'])) ?></p>
+          <form action="index.php?c=Favorites&m=removeFavorite" method="POST" class="mt-2">
+            <input type="hidden" name="id_canteen" value="<?= $canteen['id_canteen'] ?>">
+            <input type="hidden" name="redirect" value="favorites">
+            <button type="submit" class="btn btn-danger btn-sm">Remove from Favorites</button>
+          </form>
+        </div>
+      <?php endforeach; ?>
+    <?php else : ?>
+      <div class="alert alert-info text-center">You haven't liked any canteens yet.</div>
+    <?php endif; ?>
   </main>
 </body>
 
