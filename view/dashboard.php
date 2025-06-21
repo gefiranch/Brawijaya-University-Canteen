@@ -56,9 +56,9 @@
       <h2>Welcome to the Dashboard</h2>
       <p>Here you can manage your canteen activities.</p>
       <div class="dashboard-buttons mt-4">
-        <a href="#">Canteen List</a>
-        <a href="#">My Comment</a>
-        <a href="#">My Favorites</a>
+        <a href="index.php?c=Canteens&m=listCanteens">Canteen List</a>
+        <a href="index.php?c=Comments&m=showUserComments">My Comment</a>
+        <a href="index.php?c=Favorites&m=listFavorites">My Favorites</a>
         <a href="index.php?c=Users&m=logout">Logout</a>
       </div>
     </div>
