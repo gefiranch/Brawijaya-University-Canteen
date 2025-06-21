@@ -32,13 +32,17 @@
   <header>
     <button class="btn btn-outline-secondary btn-sm ms-3" onclick="window.history.back();">← Back</button>
   </header>
-
   <main>
     <div class="comment-container">
       <h2 class="text-center">Add Comment</h2>
       <p class="text-center mb-4">Please fill out the form below to add a comment.</p>
 
-      <form action="/final/controller/commentAddController.php" method="post">
+      <!-- Form yang diarahkan ke method addComment di Controller -->
+      <form action="index.php?c=Comments&m=addComment&id=<?= $_GET['id'] ?>" method="post">
+        <!-- Hidden input untuk id_user dan id_canteen -->
+        <input type="hidden" name="id_user" value="<?= $_SESSION['id_user']['id_user'] ?>" />
+        <input type="hidden" name="id_canteen" value="<?= $_GET['id'] ?>" />
+
         <div class="mb-3">
           <label for="comment" class="form-label">Comment</label>
           <textarea id="comment" name="comment" class="form-control" rows="4" placeholder="Write your comment here..." required></textarea>
@@ -49,6 +53,7 @@
       </form>
     </div>
   </main>
+
 
 </body>
 
