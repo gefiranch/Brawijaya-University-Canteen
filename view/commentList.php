@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <title>Comment List</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
@@ -50,24 +49,28 @@
 <body>
 
   <header class="d-flex justify-content-start align-items-center">
-    <a href="dashboard.php" class="btn btn-outline-secondary btn-sm btn-back">← Back to Dashboard</a>
+    <a href="index.php?c=Users&m=dashboard" class="btn btn-outline-secondary btn-sm btn-back">← Back to Dashboard</a>
   </header>
 
   <main class="container">
     <h2>Comment List</h2>
-    <p class="text-center">Here you can see your comment.</p>
+    <p class="text-center">Here you can see your comments.</p>
 
-    <!-- Example Card -->
-    <div class="card">
-      <div class="canteen-name">Main Canteen</div>
-      <div class="comment-text">Great food!</div>
-      <form method="post">
-        <input type="hidden" name="delete_id" value="1">
-        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this comment?')">Delete</button>
-      </form>
-    </div>
-
-    <!-- Add more cards as needed -->
+    <?php if (empty($comments)): ?>
+      <p class="text-center">Tidak ada komentar.</p>
+    <?php else: ?>
+      <?php foreach ($comments as $comment): ?>
+        <div class="card">
+          <div class="canteen-name"><?= htmlspecialchars($comment['canteen_name']) ?></div>
+          <div class="comment-text"><?= htmlspecialchars($comment['comment']) ?></div>
+          <form method="post" action="index.php?c=Comments&m=deleteComment" class="text-end">
+            <input type="hidden" name="delete_id" value="<?= $comment['id_comment'] ?>">
+            <button type="submit" class="btn btn-danger btn-sm"
+              onclick="return confirm('Delete this comment?')">Delete</button>
+          </form>
+        </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
   </main>
 
 </body>
