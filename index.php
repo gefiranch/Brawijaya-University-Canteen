@@ -1,10 +1,19 @@
 <?php
-$c = $_GET['c'] ?? 'Users'; // ambil controller dari URL, default ke 'home'
-$m = $_GET['m'] ?? 'login'; // ambil method dari URL, default ke 'index'
 
-require_once 'controller/Controller.class.php'; // include file controller
-require_once 'controller/' . $c . '.class.php'; // include file controller
+session_start();
 
-// Run!
-$controller = new $c(); // inisialisasi controller
-$controller->$m(); // menjalankan method yang dipanggil dari URL
+$controllerName = $_GET['c'] ?? 'Users';
+$method = $_GET['m'] ?? 'login';
+
+require_once "controller/{$controllerName}.class.php";
+$controller = new $controllerName();
+
+if (method_exists($controller, $method)) {
+    if (isset($_GET['id'])) {
+        $controller->$method($_GET['id']); // method($id)
+    } else {
+        $controller->$method(); // method()
+    }
+} else {
+    echo "Method not found.";
+}
