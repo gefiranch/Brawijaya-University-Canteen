@@ -44,35 +44,39 @@
 
 <body>
   <header>
-    <h1><a href="#" class="text-decoration-none text-dark">Brawijaya University Canteen</a></h1>
+    <h1><a href="index.php?c=Users&m=dashboard" class="text-decoration-none text-dark">Brawijaya University Canteen</a></h1>
   </header>
 
   <main class="canteen-details">
-    <h2>Campus Canteen</h2>
-    <p><strong>Price:</strong> $5 - $15</p>
-    <p><strong>Description:</strong> A popular spot for students offering a variety of meals and snacks.</p>
+    <h2><?= htmlspecialchars($canteen['name']) ?></h2>
+    <p><strong>Price Range:</strong> <?= htmlspecialchars($canteen['price']) ?></p>
+    <p><strong>Description:</strong> <?= nl2br(htmlspecialchars($canteen['description'])) ?></p>
 
     <div class="row text-center btn-add">
       <div class="col-12 col-md-6 mb-2">
-        <button onclick="window.location.href='addComment.php';" class="btn btn-secondary w-100">Add Comment</button>
+        <a href="index.php?c=Comments&m=addComment&id=<?= $canteen['id_canteen'] ?>" class="btn btn-secondary w-100">Add Comment</a>
       </div>
       <div class="col-12 col-md-6">
-        <button class="btn btn-secondary w-100">Add Favorites</button>
+        <form action="index.php?c=Favorites&m=addFavorite" method="post">
+          <input type="hidden" name="id_canteen" value="<?= $canteen['id_canteen'] ?>">
+          <button type="submit" class="btn btn-secondary w-100">Add to Favorites</button>
+        </form>
       </div>
     </div>
 
-
     <h4 class="mb-3">Comments</h4>
     <div id="comments">
-      <div class="comment-card">
-        <strong>Alice:</strong> Great food and friendly staff!
-      </div>
-      <div class="comment-card">
-        <strong>Bob:</strong> Affordable prices and quick service.
-      </div>
-      <div class="comment-card">
-        <strong>Charlie:</strong> Nice atmosphere, but sometimes crowded.
-      </div>
+      <?php if (!empty($comments)) : ?>
+        <?php foreach ($comments as $comment) : ?>
+          <div class="comment-card">
+            <strong><?= htmlspecialchars($comment['user_name'] ?? 'Anonymous') ?>:</strong>
+            <?= nl2br(htmlspecialchars($comment['comment'])) ?>
+          </div>
+        <?php endforeach; ?>
+
+      <?php else : ?>
+        <div class="text-muted">No comments yet.</div>
+      <?php endif; ?>
     </div>
   </main>
 
