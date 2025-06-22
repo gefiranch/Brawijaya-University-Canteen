@@ -48,11 +48,11 @@ Sebuah sistem berbasis website (diutamakan untuk tampilan mobile) yang menampilk
 - **Mencari dan melihat informasi detail mengenai kantin**  
   *Azka Mitsalia Zamzami*
 
-- **Menambahkan komentar pada kantin**  
-  *Ghefira Addien M.M - 245150400111033*
-
 - **Menambahkan favorit kantin**  
   *Zahra Nurul Haniyyah*
+
+- **Menambahkan komentar pada kantin**  
+  *Ghefira Addien M.M - 245150400111033*
 
 ---
 
