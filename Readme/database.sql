@@ -1,82 +1,61 @@
 -- Membuat database
-CREATE DATABASE
-IF NOT EXISTS canteenUB;
+CREATE DATABASE IF NOT EXISTS canteenUB;
+
+--Menggunakan database
 USE canteenUB;
 
 -- =======================
 -- TABEL USERS
 -- =======================
-CREATE TABLE
-IF NOT EXISTS users
+CREATE TABLE IF NOT EXISTS users
 (
   id_user INT AUTO_INCREMENT PRIMARY KEY,
-  email VARCHAR
-(100) NOT NULL UNIQUE,
-  name VARCHAR
-(100) NOT NULL,
-  password VARCHAR
-(255) NOT NULL
+  email VARCHAR (100) NOT NULL UNIQUE,
+  name VARCHAR (100) NOT NULL,
+  password VARCHAR (255) NOT NULL
 );
 
 -- =======================
 -- TABEL CANTEENS
 -- =======================
-CREATE TABLE
-IF NOT EXISTS canteens
+CREATE TABLE IF NOT EXISTS canteens
 (
   id_canteen INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR
-(100) NOT NULL,
-  price VARCHAR
-(50) NOT NULL,
+  name VARCHAR (100) NOT NULL,
+  price VARCHAR (50) NOT NULL,
   description TEXT NOT NULL
 );
 
 -- =======================
 -- TABEL FAVORITES
 -- =======================
-CREATE TABLE
-IF NOT EXISTS favorites
+CREATE TABLE IF NOT EXISTS favorites
 (
   id_like INT AUTO_INCREMENT PRIMARY KEY,
   id_user INT NOT NULL,
   id_canteen INT NOT NULL,
-  FOREIGN KEY
-(id_user) REFERENCES users
-(id_user) ON
-DELETE CASCADE,
-  FOREIGN KEY (id_canteen)
-REFERENCES canteens
-(id_canteen) ON
-DELETE CASCADE
+  FOREIGN KEY (id_user) REFERENCES users (id_user) ON DELETE CASCADE,
+  FOREIGN KEY (id_canteen) REFERENCES canteens (id_canteen) ON DELETE CASCADE
 );
 
 -- =======================
 -- TABEL COMMENTS
 -- =======================
-CREATE TABLE
-IF NOT EXISTS comments
+CREATE TABLE IF NOT EXISTS comments
 (
   id_comment INT AUTO_INCREMENT PRIMARY KEY,
   comment TEXT NOT NULL,
   id_user INT NOT NULL,
   id_canteen INT NOT NULL,
-  FOREIGN KEY
-(id_user) REFERENCES users
-(id_user) ON
-DELETE CASCADE,
-  FOREIGN KEY (id_canteen)
-REFERENCES canteens
-(id_canteen) ON
-DELETE CASCADE
+  FOREIGN KEY (id_user) REFERENCES users (id_user) ON DELETE CASCADE,
+  FOREIGN KEY (id_canteen) REFERENCES canteens (id_canteen) ON DELETE CASCADE
 );
 
 -- =======================
 -- DATA DUMMY USERS
 -- (hanya untuk testing)
 -- =======================
-INSERT INTO users
-  (email, name, password)
+INSERT INTO users (email, name, password)
 VALUES
   ('gefi01@student.ub.ac.id', 'Gefi', 'password123'),
   ('alya02@student.ub.ac.id', 'Alya', 'securepass456'),
@@ -87,8 +66,7 @@ VALUES
 -- =======================
 -- DATA DUMMY CANTEENS
 -- =======================
-INSERT INTO canteens
-  (name, price, description)
+INSERT INTO canteens (name, price, description)
 VALUES
   ('Kantin FILKOM', '7.000 - 15.000', 'Terletak di Fakultas Ilmu Komputer, UB. Kantin ini menyediakan makanan cepat saji seperti ayam geprek, nasi goreng, dan berbagai minuman kopi kekinian. Harga ramah kantong untuk mahasiswa IT.'),
   ('Kantin FEB', '8.000 - 20.000', 'Berlokasi di Fakultas Ekonomi dan Bisnis, UB. Menawarkan menu bervariasi seperti soto, bakso, ayam penyet, serta kopi susu dan es teh manis. Tempat duduk nyaman untuk diskusi tugas.'),
