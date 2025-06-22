@@ -4,7 +4,7 @@ Dokumentasi fungsi-fungsi yang terdapat di dalam folder /controller/.
 ---
 
 ## Controller.class.php
-**Ghefira**
+**Ghefira Addien M. M.**
 
 - `model()`  
   untuk menginisialisasi model yang diperlukan dan me-load model terkait.
@@ -15,7 +15,7 @@ Dokumentasi fungsi-fungsi yang terdapat di dalam folder /controller/.
 ---
 
 ## Canteens.class.php
-**Ghefira**
+**Zahra Nurul Haniyyah Anas**
 
 - `listCanteens()`  
   Menampilkan daftar semua kantin dengan memanggil data dari `CanteensModel` dan me-render `view/canteenList.php`.
@@ -26,7 +26,7 @@ Dokumentasi fungsi-fungsi yang terdapat di dalam folder /controller/.
 ---
 
 ## Comments.class.php
-**Azkamitsa**
+**Ghefira Addien M. M.**
 
 - `addComment()`  
   Menambahkan komentar baru dari user pada kantin tertentu.
@@ -40,7 +40,7 @@ Dokumentasi fungsi-fungsi yang terdapat di dalam folder /controller/.
 ---
 
 ## Favorites.class.php
-**Haniyyah**
+**Zahra Nurul Haniyyah Anas**
 
 - `addFavorite()`  
   Menambahkan kantin ke daftar favorit user.
@@ -54,7 +54,7 @@ Dokumentasi fungsi-fungsi yang terdapat di dalam folder /controller/.
 ---
 
 ## Users.class.php
-**Haniyyah**
+**Azka Mitsalia Zamzami**
 
 - `register()`  
   Memproses pendaftaran akun baru.
