@@ -40,7 +40,7 @@
             <h2 class="text-center mb-4">Login</h2>
             <?php if (isset($message) && !$message['success']) : ?>
                 <div class="alert alert-danger"><?= htmlspecialchars($message['message']) ?></div>
-            <?php eandif; ?>
+            <?php endif; ?>
             <form action="index.php?c=Users&m=login" method="POST">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
