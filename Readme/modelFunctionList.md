@@ -4,60 +4,63 @@ Dokumentasi fungsi-fungsi yang terdapat di dalam folder /model/.
 ---
 
 ## Model.class.php
-**Ghefira**
+**Ghefira Addien M. M.**
 
 - `__construct()`  
   Menghubungkan ke database `canteen` untuk keperluan query data.
 
 ---
 
+## UsersModel.class.php
+**Azka Mitsalia Zamzami**
+
+- `register($email, $name, $password)`  
+  Menambahkan data user baru ke database saat proses pendaftaran.
+
+- `login($login, $password)`  
+  Mengecek data user untuk proses login.
+
+---
+
 ## CanteensModel.class.php
-**Ghefira**
+**Zahra Nurul Haniyyah Anas**
 
 - `getAllCanteen()`  
   Mengambil semua data kantin untuk ditampilkan di `view/canteenList.php`.
 
-- `getCanteenById()`  
+- `getCanteenById($id)`  
   Mengambil data detail sebuah kantin berdasarkan ID untuk ditampilkan di `view/canteenDetail.php`.
 
 ---
 
 ## CommentsModel.class.php
-**Azkamitsa**
+**Ghefira Addien M. M.**
 
-- `getCommentsByUserId()`  
+- `getCommentsByUserId($userId)`  
   Mengambil semua komentar yang dibuat oleh user tertentu, ditampilkan di `view/commentList.php`.
 
-- `getCommentsByCanteenId()`  
+- `getCommentsByCanteenId($canteenId)`  
   Mengambil semua komentar pada sebuah kantin tertentu, ditampilkan di `view/canteenDetail.php`.
 
-- `addComment()`  
+- `addComment($userId, $canteenId, $content)`  
   Menambahkan komentar baru ke dalam database.
 
-- `deleteComment()`  
+- `deleteComment($commentId)`  
   Menghapus komentar dari database berdasarkan ID komentar.
+  
+- `getCanteenById($id)`  
+  Untuk mengambil data satu kantin tertentu dari database berdasarkan ID-nya.
 
 ---
 
 ## FavoritesModel.class.php
-**Haniyyah**
+**Zahra Nurul Haniyyah Anas**
 
-- `getFavoritesByUserId()`  
+- `getFavoritesByUserId($userId)`  
   Mengambil daftar kantin yang difavoritkan oleh user, ditampilkan di `view/favoriteList.php`.
 
-- `addFavorite()`  
+- `addFavorite($userId, $canteenId)`  
   Menambahkan kantin ke daftar favorit user.
 
-- `deleteFavorite()`  
+- `deleteFavorite($userId, $canteenId)`  
   Menghapus kantin dari daftar favorit user.
-
----
-
-## UsersModel.class.php
-**Haniyyah**
-
-- `register()`  
-  Menambahkan data user baru ke database saat proses pendaftaran.
-
-- `login()`  
-  Mengecek data user untuk proses login.
