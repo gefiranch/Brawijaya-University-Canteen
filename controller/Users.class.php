@@ -95,4 +95,3 @@ class Users extends Controller
     }
 }
 
-
